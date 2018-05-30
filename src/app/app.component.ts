@@ -106,6 +106,26 @@ class Worker extends Person{
   }
 }
 
+
+
+interface Stuff {
+  name: string;
+  age: number;
+  department?: string;
+
+  foo?(s:string);
+  // foo?(n: number): number;
+}
+
+class StuffTwo implements Stuff{
+  name:string;
+  age:number;
+
+  foo(s:string){
+    this.name= s;
+  }
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -118,13 +138,22 @@ ngOnInit(){
   // this.classTesting();
   // this.animalClassTest();
   // this.classCompatibilityTest();
-  this.extendDevrideTest();
-  this.protectedTest();
+  // this.extendDevrideTest();
+  // this.protectedTest();
+  this.interfaceTest({name:"xyz", age: 25 });
 }
 
-extendDevrideTest(){
-const poodle = new Poodle('tom');
-poodle.move();
+// extendDevrideTest(){
+// const poodle = new Poodle('tom');
+// poodle.move();
+// }
+
+interfaceTest(x: Stuff){
+  console.log(`${x.name} is ${x.age} years old and works in ${x.department}.`);
+  // x.foo(5);
+  const stuff = new StuffTwo();
+  stuff.foo("test");
+  console.log(stuff.name);
 }
 
 protectedTest(){
