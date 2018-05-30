@@ -118,15 +118,38 @@ ngOnInit(){
   // this.classTesting();
   // this.animalClassTest();
   // this.classCompatibilityTest();
-  this.extendDevrideTest();
-  this.protectedTest();
+  // this.extendDevrideTest();
+  // this.protectedTest();
+  const positions: number[] = [232,545,34,233];
+  const colors: string[] = ['blue', 'red', 'green'];
+  console.log('random number selected', this.randomIntElem([343244,5676,233244,452347,43242345]));
+
+  console.log("random string selected" , this.randomStringElem(['red','blue', 'yellow']));
+ console.log('random position selected', this.randomElem(positions));
+ console.log('random colors selected', this.randomElem(colors));
 }
 
-extendDevrideTest(){
-const poodle = new Poodle('tom');
-poodle.move();
+
+
+randomIntElem(arr: number[]) : number {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
+randomStringElem(arr: string[]) : string {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+randomElem(arr:any[]): any{
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+// extendDevrideTest(){
+// const poodle = new Poodle('tom');
+// poodle.move();
+// }
+// 
 protectedTest(){
   const worker = new Worker("steve", "sales");
   console.log(worker.getDetails());
