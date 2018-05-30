@@ -106,6 +106,14 @@ class Worker extends Person{
   }
 }
 
+
+module Shapes{
+  export class Rectangle {
+
+    constructor(public height: number, public width:number){}
+    const rect1 = new Rectangle(10,4);
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -118,14 +126,16 @@ ngOnInit(){
   // this.classTesting();
   // this.animalClassTest();
   // this.classCompatibilityTest();
-  this.extendDevrideTest();
-  this.protectedTest();
+  // this.extendDevrideTest();
+  // this.protectedTest();
+  const rect2 = new Shapes.Rectangle(20, 10);
+  console.log(rect2);
 }
 
-extendDevrideTest(){
-const poodle = new Poodle('tom');
-poodle.move();
-}
+// extendDevrideTest(){
+// const poodle = new Poodle('tom');
+// poodle.move();
+// }
 
 protectedTest(){
   const worker = new Worker("steve", "sales");
